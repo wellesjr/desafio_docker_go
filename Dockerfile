@@ -7,6 +7,9 @@ WORKDIR /app
 # Copie o código Go para o contêiner
 COPY main.go .
 
+# Inicialize o módulo Go
+RUN go mod init fullcycle
+
 # Compile o código Go
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main .
 
